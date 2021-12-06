@@ -1,3 +1,4 @@
+import 'package:einstellungen/einstellungen.dart';
 import 'package:flutter/material.dart';
 
 class Ausloggen extends StatelessWidget {
@@ -36,17 +37,16 @@ class Ausloggen extends StatelessWidget {
                       Spacer(flex: 13),
                       InkWell(
                         onTap: () {
-                          //TODO: onTap Bildschirmfoto 2021-12-05 um 15.43.08
-                          print('onTap Bildschirmfoto 2021-12-05 um 15.43.08');
+                          //TODO: onTap back
+                          Navigator.of(context).pop();
+                          print('back');
                         },
                         child: Container(
                           width: 37.0,
                           height: 43.0,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: AssetImage(''),
-                              fit: BoxFit.fill,
-                            ),
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            size: 28,
                           ),
                         ),
                       ),

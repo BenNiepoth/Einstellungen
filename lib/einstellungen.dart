@@ -1,3 +1,10 @@
+import 'package:einstellungen/Ausloggen.dart';
+import 'package:einstellungen/ansicht_waehlen.dart';
+import 'package:einstellungen/benachrichtigungen.dart';
+import 'package:einstellungen/datenschutz.dart';
+import 'package:einstellungen/impressum.dart';
+import 'package:einstellungen/profil_bearbeiten.dart';
+import 'package:einstellungen/sprache.dart';
 import 'package:flutter/material.dart';
 
 class Einstellungen extends StatelessWidget {
@@ -37,14 +44,18 @@ class Einstellungen extends StatelessWidget {
                         child: Row(
                           children: <Widget>[
                             Spacer(flex: 13),
-                            Container(
-                              width: 37.0,
-                              height: 43.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(19.0),
-                                image: DecorationImage(
-                                  image: AssetImage(''),
-                                  fit: BoxFit.fill,
+                            InkWell(
+                              onTap: () {
+                                //TODO: onTap back
+                                Navigator.of(context).pop();
+                                print('back');
+                              },
+                              child: Container(
+                                width: 37.0,
+                                height: 43.0,
+                                child: Icon(
+                                  Icons.arrow_back_ios,
+                                  size: 28,
                                 ),
                               ),
                             ),
@@ -70,6 +81,9 @@ class Einstellungen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         //TODO: onTap Rechteck 3
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Profil_bearbeiten())
+                        );
                         print('onTap Rechteck 3');
                       },
                       child: Container(
@@ -101,6 +115,9 @@ class Einstellungen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         //TODO: onTap Rechteck 4
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Ansicht_waehlen())
+                        );
                         print('onTap Rechteck 4');
                       },
                       child: Container(
@@ -132,6 +149,9 @@ class Einstellungen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         //TODO: onTap Rechteck 6
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Benachrichtigungen())
+                        );
                         print('onTap Rechteck 6');
                       },
                       child: Container(
@@ -163,6 +183,9 @@ class Einstellungen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         //TODO: onTap Rechteck 7
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Sprache())
+                        );
                         print('onTap Rechteck 7');
                       },
                       child: Container(
@@ -194,6 +217,9 @@ class Einstellungen extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         //TODO: onTap Rechteck 8
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => Ausloggen())
+                        );
                         print('onTap Rechteck 8');
                       },
                       child: Container(
@@ -213,6 +239,9 @@ class Einstellungen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             //TODO: onTap AUSLOGGEN
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => Ausloggen())
+                            );
                             print('onTap AUSLOGGEN');
                           },
                           child: Text(
@@ -273,6 +302,9 @@ class Einstellungen extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     //TODO: onTap Impressum
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Impressum())
+                    );
                     print('onTap Impressum');
                   },
                   child: Text(
@@ -292,6 +324,9 @@ class Einstellungen extends StatelessWidget {
                 child: InkWell(
                   onTap: () {
                     //TODO: onTap Datenschutz
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Datenschutz())
+                    );
                     print('onTap Datenschutz');
                   },
                   child: Text(

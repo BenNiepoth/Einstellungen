@@ -8,7 +8,7 @@ class Impressum extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF4F2F2),
-      body: Center(
+      body: SingleChildScrollView(
         child: SizedBox(
           width: 390.0,
           height: 844.0,
@@ -132,7 +132,7 @@ class Impressum extends StatelessWidget {
               Positioned(
                 left: 30.0,
                 top: 121.0,
-                child: SizedBox(
+                child: Container(
                   width: 328.0,
                   height: 568.0,
                   child: Text(

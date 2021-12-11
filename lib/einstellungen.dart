@@ -46,7 +46,7 @@ class Einstellungen extends StatelessWidget {
                             Spacer(flex: 13),
                             InkWell(
                               onTap: () {
-                                //TODO: onTap back
+                                //TODO: onTap zurueck zum Profil (Adrian)
                                 Navigator.of(context).pop();
                                 print('back');
                               },
@@ -80,10 +80,9 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 19),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Rechteck 3
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Profil_bearbeiten())
-                        );
+                        //TODO: onTap Profil bearbeiten - Adrian fragen
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Profil_bearbeiten()));
                         print('onTap Rechteck 3');
                       },
                       child: Container(
@@ -114,10 +113,9 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 19),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Rechteck 4
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Ansicht_waehlen())
-                        );
+                        //TODO: onTap Ansicht wählen - Christin und Jendrik fragen
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Ansicht_waehlen()));
                         print('onTap Rechteck 4');
                       },
                       child: Container(
@@ -148,10 +146,9 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 18),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Rechteck 6
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Benachrichtigungen())
-                        );
+                        //TODO: onTap Benachrichtigungen - in Gruppe besprechen
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Benachrichtigungen()));
                         print('onTap Rechteck 6');
                       },
                       child: Container(
@@ -182,10 +179,9 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 18),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Rechteck 7
+                        //TODO: onTap Sprache - in Gruppe besprechen
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Sprache())
-                        );
+                            MaterialPageRoute(builder: (context) => Sprache()));
                         print('onTap Rechteck 7');
                       },
                       child: Container(
@@ -215,14 +211,45 @@ class Einstellungen extends StatelessWidget {
                     ),
                     Spacer(flex: 66),
                     InkWell(
-                      onTap: () {
-                        //TODO: onTap Rechteck 8
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Ausloggen())
-                        );
-                        print('onTap Rechteck 8');
-                      },
+                      onTap: () => showDialog<String>(
+                        //TODO: onTap Ausloggen - Pop-up -> Weiterleitung zur Login-Seite
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Ausloggen'),
+                          content:
+                              const Text('Wollen Sie sich wirklich ausloggen?'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'OK'),
+                              child: const Text(
+                                'Ja',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'Cancel'),
+                              child: const Text(
+                                'Abbrechen',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       child: Container(
+                        child: Text(
+                          'AUSLOGGEN',
+                          style: TextStyle(
+                            fontFamily: 'Adobe Clean',
+                            fontSize: 18.0,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                         alignment: Alignment.center,
                         width: 182.0,
                         height: 48.0,
@@ -235,24 +262,6 @@ class Einstellungen extends StatelessWidget {
                               blurRadius: 6.0,
                             ),
                           ],
-                        ),
-                        child: InkWell(
-                          onTap: () {
-                            //TODO: onTap AUSLOGGEN
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (context) => Ausloggen())
-                            );
-                            print('onTap AUSLOGGEN');
-                          },
-                          child: Text(
-                            'AUSLOGGEN',
-                            style: TextStyle(
-                              fontFamily: 'Adobe Clean',
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
                         ),
                       ),
                     ),
@@ -301,10 +310,9 @@ class Einstellungen extends StatelessWidget {
                 bottom: 94.0,
                 child: InkWell(
                   onTap: () {
-                    //TODO: onTap Impressum
+                    //TODO: onTap Impressum - Scrollbar
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Impressum())
-                    );
+                        MaterialPageRoute(builder: (context) => Impressum()));
                     print('onTap Impressum');
                   },
                   child: Text(
@@ -323,10 +331,9 @@ class Einstellungen extends StatelessWidget {
                 bottom: 94.0,
                 child: InkWell(
                   onTap: () {
-                    //TODO: onTap Datenschutz
+                    //TODO: onTap Datenschutz - Scrollbar
                     Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Datenschutz())
-                    );
+                        MaterialPageRoute(builder: (context) => Datenschutz()));
                     print('onTap Datenschutz');
                   },
                   child: Text(

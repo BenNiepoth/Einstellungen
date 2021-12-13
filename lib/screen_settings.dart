@@ -1,10 +1,8 @@
-import 'package:einstellungen/Ausloggen.dart';
-import 'package:einstellungen/ansicht_waehlen.dart';
-import 'package:einstellungen/benachrichtigungen.dart';
-import 'package:einstellungen/datenschutz.dart';
-import 'package:einstellungen/impressum.dart';
-import 'package:einstellungen/profil_bearbeiten.dart';
-import 'package:einstellungen/sprache.dart';
+import 'package:joma/screens//screen_settings_datenschutz.dart';
+import 'package:joma/screens/screen_login.dart';
+import 'package:joma/screens/screen_profil_settings.dart';
+import 'package:joma/screens/screen_select_view.dart';
+import 'package:joma/screens/screen_settings_impressum.dart';
 import 'package:flutter/material.dart';
 
 class Einstellungen extends StatelessWidget {
@@ -13,6 +11,18 @@ class Einstellungen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("EINSTELLUNGEN"),
+        centerTitle: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_sharp),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        backgroundColor: const Color.fromRGBO(129, 129, 129, 1),
+      ),
+
       backgroundColor: const Color(0xFFF4F2F2),
       body: Center(
         child: SizedBox(
@@ -27,62 +37,11 @@ class Einstellungen extends StatelessWidget {
                 height: 844.0,
                 child: Column(
                   children: <Widget>[
-                    Container(
-                      alignment: Alignment(-0.82, 0.62),
-                      width: 390.0,
-                      height: 90.0,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF818181),
-                        border: Border.all(
-                          width: 1.0,
-                          color: const Color(0xFF707070),
-                        ),
-                      ),
-                      child: SizedBox(
-                        width: 390.0,
-                        height: 43.0,
-                        child: Row(
-                          children: <Widget>[
-                            Spacer(flex: 13),
-                            InkWell(
-                              onTap: () {
-                                //TODO: onTap zurueck zum Profil (Adrian)
-                                Navigator.of(context).pop();
-                                print('back');
-                              },
-                              child: Container(
-                                width: 37.0,
-                                height: 43.0,
-                                child: Icon(
-                                  Icons.arrow_back_ios,
-                                  size: 28,
-                                ),
-                              ),
-                            ),
-                            Spacer(flex: 80),
-                            Align(
-                              alignment: Alignment(0.0, -0.05),
-                              child: Text(
-                                'EINSTELLUNGEN',
-                                style: TextStyle(
-                                  fontFamily: 'Adobe Clean',
-                                  fontSize: 18.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ),
-                            Spacer(flex: 130),
-                          ],
-                        ),
-                      ),
-                    ),
                     Spacer(flex: 19),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Profil bearbeiten - Adrian fragen
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Profil_bearbeiten()));
+                            builder: (context) => ScreenProfilSettings()));
                         print('onTap Profil bearbeiten');
                       },
                       child: Container(
@@ -113,9 +72,8 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 19),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Ansicht wählen - Christin und Jendrik fragen
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Ansicht_waehlen()));
+                            builder: (context) => SelectView()));
                         print('onTap Ansicht waehlen');
                       },
                       child: Container(
@@ -146,7 +104,6 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 18),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Benachrichtigungen - in Gruppe besprechen
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Impressum()));
                         print('onTap Impressum');
@@ -179,7 +136,6 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 18),
                     InkWell(
                       onTap: () {
-                        //TODO: onTap Sprache - in Gruppe besprechen
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => Datenschutz()));
                         print('onTap Datenschutz');
@@ -212,18 +168,31 @@ class Einstellungen extends StatelessWidget {
                     Spacer(flex: 66),
                     InkWell(
                       onTap: () => showDialog<String>(
-                        //TODO: onTap Ausloggen - Pop-up -> Weiterleitung zur Login-Seite
+                        //TODO: onTap Ausloggen - Pop-up -> Route zu screen_login
+
                         context: context,
                         builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Ausloggen'),
+                          title: const Text('Ausloggen',
+                          style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                          ),
+                          ),
                           content:
-                              const Text('Wollen Sie sich wirklich ausloggen?'),
+                              const Text('Wollen Sie sich wirklich ausloggen?',
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                              ),
                           actions: <Widget>[
                             TextButton(
-                              onPressed: () => Navigator.pop(context, 'OK'),
+                              onPressed: () => Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                  builder: (context) => ScreenLogin())),
                               child: const Text(
                                 'Ja',
                                 style: TextStyle(
+                                  fontSize: 20,
                                   color: Colors.black,
                                 ),
                               ),
@@ -233,7 +202,8 @@ class Einstellungen extends StatelessWidget {
                               child: const Text(
                                 'Abbrechen',
                                 style: TextStyle(
-                                  color: Colors.red,
+                                  fontSize: 20,
+                                  color: Color.fromRGBO(176, 73, 75, 1),
                                 ),
                               ),
                             ),
@@ -254,7 +224,7 @@ class Einstellungen extends StatelessWidget {
                         width: 182.0,
                         height: 48.0,
                         decoration: BoxDecoration(
-                          color: const Color(0xFFFF0000),
+                          color: const Color.fromRGBO(176, 73, 75, 1),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.black.withOpacity(0.16),
@@ -266,42 +236,6 @@ class Einstellungen extends StatelessWidget {
                       ),
                     ),
                     Spacer(flex: 106),
-                    SizedBox(
-                      width: 390.0,
-                      height: 95.0,
-                      child: Stack(
-                        alignment: Alignment.topCenter,
-                        children: <Widget>[
-                          Positioned(
-                            bottom: 0,
-                            child: Container(
-                              width: 390.0,
-                              height: 61.0,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF818181),
-                                border: Border.all(
-                                  width: 1.0,
-                                  color: const Color(0xFF707070),
-                                ),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            width: 68.0,
-                            height: 67.0,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                  Radius.elliptical(34.0, 33.5)),
-                              color: const Color(0xFF434343),
-                              border: Border.all(
-                                width: 1.0,
-                                color: const Color(0xFF707070),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   ],
                 ),
               ),

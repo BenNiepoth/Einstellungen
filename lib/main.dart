@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'einstellungen.dart';
+import 'screen_settings.dart';
 
 void main() {
   runApp(const MyApp());

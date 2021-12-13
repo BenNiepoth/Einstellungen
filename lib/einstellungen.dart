@@ -83,7 +83,7 @@ class Einstellungen extends StatelessWidget {
                         //TODO: onTap Profil bearbeiten - Adrian fragen
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Profil_bearbeiten()));
-                        print('onTap Rechteck 3');
+                        print('onTap Profil bearbeiten');
                       },
                       child: Container(
                         alignment: Alignment(-0.72, 0.01),
@@ -116,7 +116,7 @@ class Einstellungen extends StatelessWidget {
                         //TODO: onTap Ansicht wählen - Christin und Jendrik fragen
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (context) => Ansicht_waehlen()));
-                        print('onTap Rechteck 4');
+                        print('onTap Ansicht waehlen');
                       },
                       child: Container(
                         alignment: Alignment(-0.73, -0.01),
@@ -148,11 +148,11 @@ class Einstellungen extends StatelessWidget {
                       onTap: () {
                         //TODO: onTap Benachrichtigungen - in Gruppe besprechen
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Benachrichtigungen()));
-                        print('onTap Rechteck 6');
+                            builder: (context) => Impressum()));
+                        print('onTap Impressum');
                       },
                       child: Container(
-                        alignment: Alignment(-0.67, 0.01),
+                        alignment: Alignment(-0.8, 0.01),
                         width: 364.0,
                         height: 91.0,
                         decoration: BoxDecoration(
@@ -166,7 +166,7 @@ class Einstellungen extends StatelessWidget {
                           ],
                         ),
                         child: Text(
-                          'BENACHRICHTIGUNGEN',
+                          'IMPRESSUM',
                           style: TextStyle(
                             fontFamily: 'Adobe Clean',
                             fontSize: 18.0,
@@ -181,8 +181,8 @@ class Einstellungen extends StatelessWidget {
                       onTap: () {
                         //TODO: onTap Sprache - in Gruppe besprechen
                         Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => Sprache()));
-                        print('onTap Rechteck 7');
+                            MaterialPageRoute(builder: (context) => Datenschutz()));
+                        print('onTap Datenschutz');
                       },
                       child: Container(
                         alignment: Alignment(-0.8, 0.0),
@@ -199,7 +199,7 @@ class Einstellungen extends StatelessWidget {
                           ],
                         ),
                         child: Text(
-                          'SPRACHE',
+                          'DATENSCHUTZ',
                           style: TextStyle(
                             fontFamily: 'Adobe Clean',
                             fontSize: 18.0,
@@ -303,48 +303,6 @@ class Einstellungen extends StatelessWidget {
                       ),
                     ),
                   ],
-                ),
-              ),
-              Positioned(
-                left: 22.0,
-                bottom: 94.0,
-                child: InkWell(
-                  onTap: () {
-                    //TODO: onTap Impressum - Scrollbar
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Impressum()));
-                    print('onTap Impressum');
-                  },
-                  child: Text(
-                    'Impressum',
-                    style: TextStyle(
-                      fontFamily: 'Adobe Clean',
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                right: 18.0,
-                bottom: 94.0,
-                child: InkWell(
-                  onTap: () {
-                    //TODO: onTap Datenschutz - Scrollbar
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => Datenschutz()));
-                    print('onTap Datenschutz');
-                  },
-                  child: Text(
-                    'Datenschutz',
-                    style: TextStyle(
-                      fontFamily: 'Adobe Clean',
-                      fontSize: 20.0,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
                 ),
               ),
             ],
